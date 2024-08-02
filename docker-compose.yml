@@ -17,12 +17,12 @@ services:
       - ${POSTGRES_DATA_PATH}:/var/lib/postgresql/data
     environment:
       # timezone inside container
-      - TZ
+      - TZ=${TZ}
 
       # necessary Postgres options/variables
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
-      - POSTGRES_DB
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
 
   mattermost:
     depends_on:
@@ -48,17 +48,17 @@ services:
       # - ${GITLAB_PKI_CHAIN_PATH}:/etc/ssl/certs/pki_chain.pem:ro
     environment:
       # timezone inside container
-      - TZ
+      - TZ=${TZ}
 
       # necessary Mattermost options/variables (see env.example)
-      - MM_SQLSETTINGS_DRIVERNAME
-      - MM_SQLSETTINGS_DATASOURCE
+      - MM_SQLSETTINGS_DRIVERNAME=${MM_SQLSETTINGS_DRIVERNAME}
+      - MM_SQLSETTINGS_DATASOURCE=${MM_SQLSETTINGS_DATASOURCE}
 
       # necessary for bleve
-      - MM_BLEVESETTINGS_INDEXDIR
+      - MM_BLEVESETTINGS_INDEXDIR=${MM_BLEVESETTINGS_INDEXDIR}
 
       # additional settings
-      - MM_SERVICESETTINGS_SITEURL
+      - MM_SERVICESETTINGS_SITEURL=${MM_SERVICESETTINGS_SITEURL}
 
 # If you use rolling image tags and feel lucky watchtower can automatically pull new images and
 # instantiate containers from it. https://containrrr.dev/watchtower/
