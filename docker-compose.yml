@@ -5,7 +5,7 @@ version: "2.4"
 services:
   postgres:
     env_file:
-      - ./example.env
+      - ./env.example
     image: postgres:${POSTGRES_IMAGE_TAG}
     restart: ${RESTART_POLICY}
     security_opt:
@@ -28,7 +28,7 @@ services:
 
   mattermost:
     env_file:
-      - ./example.env
+      - ./env.example
     depends_on:
       - postgres
     image: mattermost/${MATTERMOST_IMAGE}:${MATTERMOST_IMAGE_TAG}
