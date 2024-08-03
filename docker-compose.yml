@@ -28,6 +28,7 @@ services:
     depends_on:
       - postgres
     image: mattermost/${MATTERMOST_IMAGE}:${MATTERMOST_IMAGE_TAG}
+    platform: linux/amd64
     restart: ${RESTART_POLICY}
     security_opt:
       - no-new-privileges:true
